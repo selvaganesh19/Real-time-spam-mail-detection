@@ -1,5 +1,5 @@
 function connectGmail(){
 
-window.location.href="http://localhost:8000/connect-gmail"
+window.location.href="https://real-time-spam-mail-detection.vercel.app/connect-gmail"
 
 }
