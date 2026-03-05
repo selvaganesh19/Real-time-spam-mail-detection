@@ -2,7 +2,7 @@ const CACHE_NAME = "spam-detector-pwa-v1";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./login.html",
+//   "./login.html",
   "./manifest.json",
   "./icon/favicon-16x16.png",
   "./icon/favicon-32x32.png",

@@ -28,7 +28,7 @@ def dashboard():
 
 @app.get("/")
 def login_page():
-    return FileResponse(os.path.join(FRONTEND_DIR, "login.html"))
+    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
 
 app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
 SCOPES = [
