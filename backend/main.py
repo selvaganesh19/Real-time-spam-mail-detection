@@ -189,3 +189,11 @@ def login(data: dict):
         return {"success":True}
 
     return {"success":False}
+
+@app.get("/sitemap.xml")
+def sitemap():
+    return FileResponse(os.path.join(FRONTEND_DIR, "sitemap.xml"), media_type="application/xml")
+
+@app.get("/robots.txt")
+def robots():
+    return FileResponse(os.path.join(FRONTEND_DIR, "robots.txt"), media_type="text/plain")
