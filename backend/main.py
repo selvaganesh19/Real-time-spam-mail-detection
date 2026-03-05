@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from google_auth_oauthlib.flow import Flow
 import json
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from gmail import scan_emails
@@ -12,9 +13,19 @@ from db import get_connection
 
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FRONTEND_DIR = os.path.join(BASE_DIR, "../frontend")
-
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
+GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
+GOOGLE_REDIRECT_URI = os.getenv("GOOGLE_REDIRECT_URI")
 
 @app.get("/")
 def index():
@@ -35,10 +46,17 @@ SCOPES = [
 'https://www.googleapis.com/auth/gmail.readonly'
 ]
 
-flow = Flow.from_client_secrets_file(
-    "client_secret.json",
+flow = Flow.from_client_config(
+    {
+        "web": {
+            "client_id": GOOGLE_CLIENT_ID,
+            "client_secret": GOOGLE_CLIENT_SECRET,
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://oauth2.googleapis.com/token",
+        }
+    },
     scopes=SCOPES,
-    redirect_uri="http://localhost:8000/auth/callback"
+    redirect_uri=GOOGLE_REDIRECT_URI
 )
 
 
@@ -79,12 +97,12 @@ def scan_mails():
         access_token, refresh_token = token
 
         creds = Credentials(
-            token=access_token,
-            refresh_token=refresh_token,
-            token_uri="https://oauth2.googleapis.com/token",
-            client_id=flow.client_config["client_id"],
-            client_secret=flow.client_config["client_secret"]
-        )
+        token=access_token,
+        refresh_token=refresh_token,
+        token_uri="https://oauth2.googleapis.com/token",
+        client_id=GOOGLE_CLIENT_ID,
+        client_secret=GOOGLE_CLIENT_SECRET
+    )
 
         # scan gmail
         scan_emails(creds, "user@gmail.com")
@@ -140,7 +158,7 @@ def auth_callback(code: str):
         cursor.close()
         conn.close()
 
-    return RedirectResponse("http://127.0.0.1:8000/dashboard.html")
+    return RedirectResponse("https://real-time-spam-mail-detection.vercel.app/dashboard.html")
 
 
 
