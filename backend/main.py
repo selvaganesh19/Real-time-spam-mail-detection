@@ -131,8 +131,11 @@ def scan_mails():
 
     return emails
 
+from fastapi import Request
 @app.get("/auth/callback")
-def auth_callback(code: str):
+def auth_callback(request: Request):
+
+    code = request.query_params.get("code")
 
     flow.fetch_token(code=code)
 
@@ -145,7 +148,6 @@ def auth_callback(code: str):
     cursor = conn.cursor()
 
     try:
-
         cursor.execute(
             """
             INSERT INTO gmail_tokens(access_token, refresh_token)
@@ -153,13 +155,15 @@ def auth_callback(code: str):
             """,
             (access_token, refresh_token)
         )
+        conn.commit()
 
     finally:
         cursor.close()
         conn.close()
 
-    return RedirectResponse("https://real-time-spam-mail-detection.vercel.app/dashboard.html")
-
+    return RedirectResponse(
+        "https://real-time-spam-mail-detection.vercel.app/dashboard.html"
+    )
 
 
 @app.post("/login")
