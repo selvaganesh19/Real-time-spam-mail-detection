@@ -1,7 +1,7 @@
 const CACHE_NAME = "electricity-bill-pwa-v2";
 const APP_SHELL = [
   "./",
-  "./index.html",
+  "./login.html",
   "./manifest.json",
   "./icon/favicon-16x16.png",
   "./icon/favicon-32x32.png",
@@ -31,7 +31,7 @@ self.addEventListener("fetch", (event) => {
   if (req.method !== "GET") return;
 
   if (req.mode === "navigate") {
-    event.respondWith(fetch(req).catch(() => caches.match("./index.html")));
+    event.respondWith(fetch(req).catch(() => caches.match("./login.html")));
     return;
   }
 
