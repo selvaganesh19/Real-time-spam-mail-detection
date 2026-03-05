@@ -480,7 +480,7 @@
             table.style.display = 'none';
 
             try {
-                const response = await fetch("http://127.0.0.1:8000/scan-mails");
+                const response = await fetch("https://real-time-spam-mail-detection-backend.onrender.com/scan-mails");
                 const data = await response.json();
 
                 tableBody.innerHTML = "";
