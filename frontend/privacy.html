@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<link rel="apple-touch-icon" sizes="57x57" href="./icon/apple-icon-57x57.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy - Spam Not Spam Real-time Email Detection">
+    <link rel="apple-touch-icon" sizes="57x57" href="./icon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./icon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="./icon/apple-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="./icon/apple-icon-76x76.png">
@@ -15,92 +17,380 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="./icon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./icon/favicon-16x16.png">
-<title>Privacy Policy</title>
+    <title>Privacy Policy - Spam Not Spam</title>
 
-<style>
-body{
-font-family: Arial, sans-serif;
-max-width: 800px;
-margin: auto;
-padding: 40px;
-line-height: 1.6;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-h1{
-color:#333;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 35%, #f093fb 70%, #ff6b9d 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+        }
 
-h2{
-margin-top:30px;
-}
-</style>
+        body::before {
+            content: '';
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
+            border-radius: 50%;
+            top: -100px;
+            left: -150px;
+            animation: float 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+            border-radius: 50%;
+            bottom: -80px;
+            right: -100px;
+            animation: float 10s ease-in-out infinite reverse;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-40px) translateX(30px); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 25px;
+            padding: 60px 50px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25), 0 0 40px rgba(102, 126, 234, 0.2);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            z-index: 1;
+            animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            line-height: 1.8;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out 0.1s both;
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-text {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(240, 147, 251, 0.05) 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 40px;
+            color: #555;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .content {
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover h2 {
+            color: #764ba2;
+            border-bottom-color: #764ba2;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 3px solid #f093fb;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(240, 147, 251, 0.08) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .contact-box h3 {
+            color: #667eea;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .contact-box a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-box a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .back-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .back-link a:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateX(-4px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        ul {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .feature-box {
+            background: rgba(102, 126, 234, 0.05);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 8px 0;
+            border-left: 3px solid #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 16px;
+            }
+
+            .logo {
+                font-size: 40px;
+            }
+        }
+
+    </style>
 
 </head>
 
 <body>
 
-<h1>Privacy Policy</h1>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🔒</div>
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">Your privacy is our priority</p>
+        </div>
 
-<p>
-This Privacy Policy explains how the Real-Time Spam Mail Detection application collects, uses, and protects user data.
-</p>
+        <div class="intro-text">
+            <p><strong>Welcome to Spam Not Spam.</strong> This Privacy Policy explains how our Real-Time Spam Mail Detection application collects, uses, and protects your data. We are committed to maintaining the confidentiality and security of your personal information.</p>
+        </div>
 
-<h2>Information We Access</h2>
+        <div class="content">
+            <div class="section">
+                <h2>📧 Information We Access</h2>
+                <p>Our application uses the Google Gmail API to read email message content for the purpose of detecting spam messages. We only request the following permission:</p>
+                <div class="feature-box">
+                    <strong>🔐 Gmail Read-Only Access</strong>
+                </div>
+                <p>The application does not modify, send, delete, or alter any emails. We maintain read-only access to ensure your emails remain completely safe and untouched.</p>
+            </div>
 
-<p>
-Our application uses the Google Gmail API to read email message content for the purpose of detecting spam messages.
-We only request the following permission:
-</p>
+            <div class="section">
+                <h2>🔍 How We Use Your Data</h2>
+                <p>Email data accessed through Gmail is used exclusively for spam detection using advanced machine learning models. Here's what we do with your information:</p>
+                <ul>
+                    <li>Analyze email content to detect spam patterns</li>
+                    <li>Generate spam detection predictions</li>
+                    <li>Temporarily process data for classification</li>
+                    <li>Never permanently store sensitive email content</li>
+                    <li>Never share data with third parties</li>
+                </ul>
+            </div>
 
-<ul>
-<li>Gmail Read-Only Access</li>
-</ul>
+            <div class="section">
+                <h2>💾 Data Storage</h2>
+                <p>We store minimal information required to run the service efficiently:</p>
+                <div class="highlight">
+                    <strong>What We Store:</strong> Only spam detection prediction results (classification as spam or not spam) are retained for service improvement and historical records.
+                </div>
+                <p><strong>What We Don't Store:</strong> Sensitive email content, message bodies, attachments, and personal identifiable information are not permanently stored on our servers.</p>
+            </div>
 
-<p>
-The application does not modify, send, or delete any emails.
-</p>
+            <div class="section">
+                <h2>🌐 Third-Party Services</h2>
+                <p>This application uses external services to provide functionality:</p>
+                <ul>
+                    <li><strong>Google APIs:</strong> For Gmail authentication and email access. Use is subject to Google's Privacy Policy.</li>
+                    <li><strong>Backend Services:</strong> For processing spam detection requests.</li>
+                </ul>
+                <p>We recommend reviewing Google's Privacy Policy at <a href="https://policies.google.com/privacy" target="_blank" style="color: #667eea; font-weight: 600;">https://policies.google.com/privacy</a></p>
+            </div>
 
-<h2>How We Use Your Data</h2>
+            <div class="section">
+                <h2>🛡️ Security</h2>
+                <p>We take reasonable and appropriate measures to protect your information:</p>
+                <ul>
+                    <li>Use secure HTTPS connections for all data transmission</li>
+                    <li>Implement authentication mechanisms through Google OAuth</li>
+                    <li>Limit data access to only necessary functionality</li>
+                    <li>Regularly review and update security practices</li>
+                </ul>
+                <div class="highlight">
+                    <strong>Note:</strong> While we implement industry-standard security measures, no system is completely secure. Users should take personal precautions to protect their account credentials.
+                </div>
+            </div>
 
-<p>
-Email data accessed through Gmail is used only for spam detection using machine learning models.
-The content is analyzed temporarily and is not permanently stored or shared with third parties.
-</p>
+            <div class="section">
+                <h2>🔄 Your Rights</h2>
+                <p>As a user, you have the following rights:</p>
+                <ul>
+                    <li>Revoke application access to your Gmail account at any time through Google Account settings</li>
+                    <li>Request information about what data we hold</li>
+                    <li>Request deletion of your data</li>
+                    <li>Opt-out of data collection</li>
+                </ul>
+            </div>
 
-<h2>Data Storage</h2>
+            <div class="section">
+                <h2>📝 Changes to This Policy</h2>
+                <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, or legal requirements. Any significant changes will be posted on this page with an updated date. Continued use of the application following the posting of revised Privacy Policy means you accept and agree to the changes.</p>
+            </div>
 
-<p>
-We store minimal information required to run the service, such as prediction results (spam or not spam).
-Sensitive email content is not permanently stored.
-</p>
+            <div class="contact-box">
+                <h3>❓ Questions About Your Privacy?</h3>
+                <p>If you have questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us:</p>
+                <p><a href="mailto:selvavelayutham395@gmail.com">selvavelayutham395@gmail.com</a></p>
+            </div>
 
-<h2>Third-Party Services</h2>
-
-<p>
-This application uses Google APIs and services. Use of these services is subject to Google's Privacy Policy.
-</p>
-
-<h2>Security</h2>
-
-<p>
-We take reasonable measures to protect user information and ensure that data access is limited to the functionality of the application.
-</p>
-
-<h2>Changes to This Policy</h2>
-
-<p>
-We may update this Privacy Policy from time to time. Updates will be posted on this page.
-</p>
-
-<h2>Contact</h2>
-
-<p>
-If you have questions about this Privacy Policy, please contact the developer at:
-</p>
-
-<p>
-Email: selvavelayutham395@gmail.com
-</p>
+            <div class="back-link">
+                <a href="/index.html">← Back to Home</a>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
