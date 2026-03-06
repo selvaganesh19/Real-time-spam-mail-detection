@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<link rel="apple-touch-icon" sizes="57x57" href="./icon/apple-icon-57x57.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms of Service - Spam Not Spam Real-time Email Detection">
+    <link rel="apple-touch-icon" sizes="57x57" href="./icon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./icon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="./icon/apple-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="./icon/apple-icon-76x76.png">
@@ -15,88 +17,346 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="./icon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./icon/favicon-16x16.png">
-<title>Terms of Service</title>
+    <title>Terms of Service - Spam Not Spam</title>
 
-<style>
-body{
-font-family: Arial, sans-serif;
-max-width: 800px;
-margin: auto;
-padding: 40px;
-line-height: 1.6;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-h1{
-color:#333;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 35%, #f093fb 70%, #ff6b9d 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+        }
 
-h2{
-margin-top:30px;
-}
-</style>
+        body::before {
+            content: '';
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
+            border-radius: 50%;
+            top: -100px;
+            left: -150px;
+            animation: float 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+            border-radius: 50%;
+            bottom: -80px;
+            right: -100px;
+            animation: float 10s ease-in-out infinite reverse;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-40px) translateX(30px); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 25px;
+            padding: 60px 50px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25), 0 0 40px rgba(102, 126, 234, 0.2);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            z-index: 1;
+            animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            line-height: 1.8;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out 0.1s both;
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-text {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(240, 147, 251, 0.05) 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 40px;
+            color: #555;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .content {
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover h2 {
+            color: #764ba2;
+            border-bottom-color: #764ba2;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 3px solid #f093fb;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(240, 147, 251, 0.08) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .contact-box h3 {
+            color: #667eea;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .contact-box a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-box a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .back-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .back-link a:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateX(-4px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        ul {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 16px;
+            }
+
+            .logo {
+                font-size: 40px;
+            }
+        }
+
+    </style>
 
 </head>
 
 <body>
 
-<h1>Terms of Service</h1>
+    <div class="container">
+        <div class="header">
+            <div class="logo">📜</div>
+            <h1>Terms of Service</h1>
+            <p class="subtitle">Please read carefully before using our service</p>
+        </div>
 
-<p>
-Welcome to Real-Time Spam Mail Detection. By using this application, you agree to the following terms and conditions.
-</p>
+        <div class="intro-text">
+            <p><strong>Welcome to Real-Time Spam Mail Detection.</strong> By using this application, you agree to the following terms and conditions. If you do not agree with any part of these terms, please refrain from using our service.</p>
+        </div>
 
-<h2>Use of the Service</h2>
+        <div class="content">
+            <div class="section">
+                <h2>📋 Use of the Service</h2>
+                <p>This application analyzes Gmail messages to detect potential spam using advanced machine learning techniques. Users agree to use the service only for lawful purposes and in accordance with these terms.</p>
+                <div class="highlight">
+                    <strong>Note:</strong> The service is provided for personal use only and should not be used for any commercial purposes without prior authorization.
+                </div>
+            </div>
 
-<p>
-This application analyzes Gmail messages to detect potential spam using machine learning techniques.
-Users agree to use the service only for lawful purposes.
-</p>
+            <div class="section">
+                <h2>🔐 Google Account Access</h2>
+                <p>The application requires permission to read Gmail messages using the Gmail API. The access is read-only and used solely for spam detection purposes. We do not store, sell, or share your email data with third parties.</p>
+            </div>
 
-<h2>Google Account Access</h2>
+            <div class="section">
+                <h2>✉️ No Email Modification</h2>
+                <p>The service does not modify, send, delete, or alter user emails in any way. Your emails remain completely untouched and under your control. We only analyze and provide spam detection insights.</p>
+            </div>
 
-<p>
-The application requires permission to read Gmail messages using the Gmail API. The access is read-only and used solely for spam detection.
-</p>
+            <div class="section">
+                <h2>⚠️ Accuracy Disclaimer</h2>
+                <p>Spam detection results are generated using machine learning models and may not always be 100% accurate. Users should verify important messages manually before taking any action. We recommend treating our results as suggestions rather than definitive classifications.</p>
+            </div>
 
-<h2>No Email Modification</h2>
+            <div class="section">
+                <h2>⏱️ Service Availability</h2>
+                <p>We do not guarantee uninterrupted availability of the service. The application may be updated or temporarily unavailable due to maintenance, technical issues, or other unforeseen circumstances. We will make reasonable efforts to notify users of planned downtime.</p>
+            </div>
 
-<p>
-The service does not modify, send, delete, or alter user emails.
-</p>
+            <div class="section">
+                <h2>⚖️ Limitation of Liability</h2>
+                <p>The developer is not responsible for any damages, data loss, or issues arising from the use of this application. Users use the service at their own risk. This includes but is not limited to:</p>
+                <ul>
+                    <li>Email classification errors</li>
+                    <li>Loss of access to accounts</li>
+                    <li>Technical failures or outages</li>
+                    <li>Any indirect or consequential damages</li>
+                </ul>
+            </div>
 
-<h2>Accuracy Disclaimer</h2>
+            <div class="section">
+                <h2>🔄 Changes to Terms</h2>
+                <p>These terms may be updated periodically without notice. Continued use of the service indicates your acceptance of updated terms. We encourage you to review these terms regularly for any changes.</p>
+            </div>
 
-<p>
-Spam detection results are generated using machine learning models and may not always be 100% accurate. Users should verify important messages manually.
-</p>
+            <div class="contact-box">
+                <h3>❓ Have Questions?</h3>
+                <p>For questions regarding these terms or our service, please contact us at:</p>
+                <p><a href="mailto:selvavelayutham395@gmail.com">selvavelayutham395@gmail.com</a></p>
+            </div>
 
-<h2>Service Availability</h2>
-
-<p>
-We do not guarantee uninterrupted availability of the service. The application may be updated or temporarily unavailable due to maintenance.
-</p>
-
-<h2>Limitation of Liability</h2>
-
-<p>
-The developer is not responsible for any damages, data loss, or issues arising from the use of this application.
-</p>
-
-<h2>Changes to Terms</h2>
-
-<p>
-These terms may be updated periodically. Continued use of the service indicates acceptance of updated terms.
-</p>
-
-<h2>Contact</h2>
-
-<p>
-For questions regarding these terms, contact:
-</p>
-
-<p>
-Email: selvavelayutham395@gmail.com
-</p>
+            <div class="back-link">
+                <a href="/index.html">← Back to Home</a>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
