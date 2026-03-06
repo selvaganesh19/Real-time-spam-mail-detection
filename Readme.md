@@ -133,7 +133,6 @@ Protect your inbox with the power of AI.
 Star ⭐ the repo and feel free to open issues or feature requests!
 
 ---
-```
 
 
 ## License
